@@ -28,7 +28,7 @@ WSTĘPNE WYMAGANIA:
 HARMONOGRAM PRACY: 
 - 06.11.2016r. (Wspólne) - Kalkulator z podstawowymi operacjami arytmetycznymi i podstawowym GUI
 - 16.11.2016r. (Krzysiek) - Obliczanie daty
-- 01.12.2016r. (Krzysiek + kilka dodatkowych Marcin) - Przeliczanie jednostek oraz pokazanie prototypu
+- 01.12.2016r. - Przeliczanie jednostek (Krzysiek - dane, moc, prędkość | Marcin - czas, temperatura, długość) oraz wspólne pokazanie prototypu
 - 10.12.2016r. (Krzysiek) - Kursy walut
 - 14.12.2016r. (Marcin) - Tryb offline walut
 - 21.12.2016r. (Marcin) - Rysowanie wykresów
