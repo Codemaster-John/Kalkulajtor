@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT       += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Kalkulajtor
@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += calculator.h
 
 FORMS    += calculator.ui
+
+RESOURCES += \
+    resources.qrc

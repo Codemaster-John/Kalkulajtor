@@ -1,12 +1,15 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 #include <QDebug>
+//#include <QSound>
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Calculator)
 {
     ui->setupUi(this);
+
+    waitingForOperand = true;
 }
 
 Calculator::~Calculator()
@@ -16,51 +19,62 @@ Calculator::~Calculator()
 
 void Calculator::on_button_0_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + "0");
+
 }
 
 void Calculator::on_button_1_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_1->text());
 }
 
 void Calculator::on_button_2_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_2->text());
 }
 
 void Calculator::on_button_3_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_3->text());
 }
 
 void Calculator::on_button_4_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_4->text());
 }
 
 void Calculator::on_button_5_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_5->text());
 }
 
 void Calculator::on_button_6_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_6->text());
 }
 
 void Calculator::on_button_7_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_7->text());
 }
 
 void Calculator::on_button_8_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_8->text());
 }
 
 void Calculator::on_button_9_clicked()
 {
+    QSound::play(":/new/sounds/metal_click_1.wav");
     ui->screen->setText(ui->screen->text() + ui->button_9->text());
 }
 
@@ -98,7 +112,7 @@ void Calculator::on_buttonReplace_clicked()
 {
     QString text = ui->screen->text();
     double value = text.toDouble();
-    qDebug() << value;
+
     if(value > 0.0)
     {
         text.prepend(tr("-"));
@@ -109,7 +123,6 @@ void Calculator::on_buttonReplace_clicked()
     }
     else if(value == 0.0)
     {
-        qDebug() << "here";
         text.clear();
     }
 

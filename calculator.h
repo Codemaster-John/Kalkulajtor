@@ -2,6 +2,7 @@
 #define CALCULATOR_H
 
 #include <QMainWindow>
+#include <QSound>
 
 namespace Ui {
 class Calculator;
@@ -59,6 +60,7 @@ private slots:
 private:
     Ui::Calculator *ui;
 
+    bool waitingForOperand;
 };
 
 #endif // CALCULATOR_H
