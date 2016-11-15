@@ -116,18 +116,26 @@ void Calculator::on_buttonReplace_clicked()
     ui->screen->setText(text);
 }
 
+
 void Calculator::on_backSpace_clicked()
 {
     QString text = ui->screen->text();
 
-    if( text.length() > 2 )
+    if (text.length() <= 2)
+    {
+        if (text.toDouble() > 0.0)
+        {
+            ui->screen->backspace();
+        }
+        else
+        {
+            ui->screen->clear();
+        }
+        //text.clear();
+    }
+    else if( text.length() > 2 )
     {
         ui->screen->backspace();
-    }
-    else if (text.length() <= 2)
-    {
-        ui->screen->clear();
-        //text.clear();
     }
 }
 
