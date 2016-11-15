@@ -88,6 +88,29 @@
        </property>
       </widget>
      </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="button_0">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
      <item row="5" column="3">
       <widget class="QPushButton" name="buttonEqual">
        <property name="minimumSize">
@@ -157,8 +180,8 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QPushButton" name="button_0">
+     <item row="5" column="2">
+      <widget class="QPushButton" name="buttonComma">
        <property name="minimumSize">
         <size>
          <width>103</width>
@@ -173,7 +196,30 @@
         </font>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>,</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="button_6">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>6</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -226,75 +272,6 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="button_6">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>6</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QPushButton" name="buttonComma">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>,</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QPushButton" name="buttonSubtract">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>-</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="4" column="2">
       <widget class="QPushButton" name="button_3">
        <property name="minimumSize">
@@ -312,52 +289,6 @@
        </property>
        <property name="text">
         <string>3</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="back">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>CE</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="button_7">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>7</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -396,8 +327,8 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="button_4">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="button_7">
        <property name="minimumSize">
         <size>
          <width>103</width>
@@ -412,15 +343,15 @@
         </font>
        </property>
        <property name="text">
-        <string>4</string>
+        <string>7</string>
        </property>
        <property name="flat">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="2" column="3">
-      <widget class="QPushButton" name="buttonMultiply">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="back">
        <property name="minimumSize">
         <size>
          <width>103</width>
@@ -435,7 +366,30 @@
         </font>
        </property>
        <property name="text">
-        <string>x</string>
+        <string>CE</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="buttonSubtract">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>-</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -465,29 +419,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="3">
-      <widget class="QPushButton" name="buttonShare">
-       <property name="minimumSize">
-        <size>
-         <width>103</width>
-         <height>83</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>/</string>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="2">
       <widget class="QPushButton" name="button_9">
        <property name="minimumSize">
@@ -511,11 +442,77 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="4">
-      <widget class="QTextBrowser" name="textBrowser">
-       <property name="enabled">
-        <bool>false</bool>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="buttonMultiply">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>x</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="button_4">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="buttonShare">
+       <property name="minimumSize">
+        <size>
+         <width>103</width>
+         <height>83</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>/</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="4">
+      <widget class="QLineEdit" name="screen">
        <property name="minimumSize">
         <size>
          <width>412</width>
@@ -525,17 +522,37 @@
        <property name="font">
         <font>
          <family>Arial</family>
-         <pointsize>20</pointsize>
+         <pointsize>24</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
-       <property name="html">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:20pt; font-weight:600; font-style:normal;&quot;&gt;
-&lt;p align=&quot;right&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>15</number>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="cursorPosition">
+        <number>0</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="dragEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>0</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
        </property>
       </widget>
      </item>

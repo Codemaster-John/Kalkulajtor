@@ -15,77 +15,77 @@ Calculator::~Calculator()
 
 void Calculator::on_button_0_clicked()
 {
-    ui->textBrowser->setText("0");
+    ui->screen->setText(ui->screen->text() + "0");
 }
 
 void Calculator::on_button_1_clicked()
 {
-    ui->textBrowser->setText("1");
+    ui->screen->setText(ui->screen->text() + ui->button_1->text());
 }
 
 void Calculator::on_button_2_clicked()
 {
-    ui->textBrowser->setText("2");
+    ui->screen->setText(ui->screen->text() + ui->button_2->text());
 }
 
 void Calculator::on_button_3_clicked()
 {
-    ui->textBrowser->setText("3");
+    ui->screen->setText(ui->screen->text() + ui->button_3->text());
 }
 
 void Calculator::on_button_4_clicked()
 {
-    ui->textBrowser->setText("4");
+    ui->screen->setText(ui->screen->text() + ui->button_4->text());
 }
 
 void Calculator::on_button_5_clicked()
 {
-    ui->textBrowser->setText("5");
+    ui->screen->setText(ui->screen->text() + ui->button_5->text());
 }
 
 void Calculator::on_button_6_clicked()
 {
-    ui->textBrowser->setText("6");
+    ui->screen->setText(ui->screen->text() + ui->button_6->text());
 }
 
 void Calculator::on_button_7_clicked()
 {
-    ui->textBrowser->setText("7");
+    ui->screen->setText(ui->screen->text() + ui->button_7->text());
 }
 
 void Calculator::on_button_8_clicked()
 {
-    ui->textBrowser->setText("8");
+    ui->screen->setText(ui->screen->text() + ui->button_8->text());
 }
 
 void Calculator::on_button_9_clicked()
 {
-    ui->textBrowser->setText("9");
+    ui->screen->setText(ui->screen->text() + ui->button_9->text());
 }
 
 void Calculator::on_buttonComma_clicked()
 {
-    ui->textBrowser->setText(",");
+    ui->screen->setText(ui->screen->text() + ui->buttonComma->text());
 }
 
 void Calculator::on_buttonAdd_clicked()
 {
-    ui->textBrowser->setText("+");
+    ui->screen->setText(ui->screen->text() + ui->buttonAdd->text());
 }
 
 void Calculator::on_buttonSubtract_clicked()
 {
-    ui->textBrowser->setText("-");
+    ui->screen->setText(ui->screen->text() + ui->buttonSubtract->text());
 }
 
 void Calculator::on_buttonMultiply_clicked()
 {
-        ui->textBrowser->setText("x");
+    ui->screen->setText(ui->screen->text() + ui->buttonMultiply->text());
 }
 
 void Calculator::on_buttonShare_clicked()
 {
-    ui->textBrowser->setText("/");
+    ui->screen->setText(ui->screen->text() + ui->buttonShare->text());
 }
 
 void Calculator::on_buttonEqual_clicked()
@@ -100,12 +100,13 @@ void Calculator::on_buttonReplace_clicked()
 
 void Calculator::on_backSpace_clicked()
 {
-
+    ui->screen->backspace();
 }
 
 void Calculator::on_reset_clicked()
 {
-    ui->textBrowser->setText(" ");
+    ui->screen->clear();
+    ui->screen->setPlaceholderText("0");
 }
 
 void Calculator::on_back_clicked()
