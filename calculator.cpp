@@ -1,5 +1,6 @@
 #include "calculator.h"
 #include "ui_calculator.h"
+#include <QDebug>
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
@@ -95,12 +96,39 @@ void Calculator::on_buttonEqual_clicked()
 
 void Calculator::on_buttonReplace_clicked()
 {
+    QString text = ui->screen->text();
+    double value = text.toDouble();
+    qDebug() << value;
+    if(value > 0.0)
+    {
+        text.prepend(tr("-"));
+    }
+    else if (value < 0.0)
+    {
+        text.remove(0,1);
+    }
+    else if(value == 0.0)
+    {
+        qDebug() << "here";
+        text.clear();
+    }
 
+    ui->screen->setText(text);
 }
 
 void Calculator::on_backSpace_clicked()
 {
-    ui->screen->backspace();
+    QString text = ui->screen->text();
+
+    if( text.length() > 2 )
+    {
+        ui->screen->backspace();
+    }
+    else if (text.length() <= 2)
+    {
+        ui->screen->clear();
+        //text.clear();
+    }
 }
 
 void Calculator::on_reset_clicked()
