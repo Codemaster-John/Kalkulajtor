@@ -20,6 +20,16 @@ Calculator::~Calculator()
 void Calculator::on_button_0_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
+
+    if (ui->screen->text() == "0" && ui->button_0->text().toInt() == 0.0)
+              return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
     ui->screen->setText(ui->screen->text() + "0");
 
 }
@@ -27,60 +37,151 @@ void Calculator::on_button_0_clicked()
 void Calculator::on_button_1_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_1->text());
+
+    if (ui->screen->text() == "0" && ui->button_1->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "1");
 }
 
 void Calculator::on_button_2_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_2->text());
+
+    if (ui->screen->text() == "0" && ui->button_2->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "2");
 }
 
 void Calculator::on_button_3_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_3->text());
+
+    if (ui->screen->text() == "0" && ui->button_3->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "3");
 }
 
 void Calculator::on_button_4_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_4->text());
+
+    if (ui->screen->text() == "0" && ui->button_4->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "4");
 }
 
 void Calculator::on_button_5_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_5->text());
+
+    if (ui->screen->text() == "0" && ui->button_5->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "5");
 }
 
 void Calculator::on_button_6_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_6->text());
+
+    if (ui->screen->text() == "0" && ui->button_6->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "6");
 }
 
 void Calculator::on_button_7_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_7->text());
+
+    if (ui->screen->text() == "0" && ui->button_7->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "7");
 }
 
 void Calculator::on_button_8_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_8->text());
+
+    if (ui->screen->text() == "0" && ui->button_8->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "8");
 }
 
 void Calculator::on_button_9_clicked()
 {
     QSound::play(":/new/sounds/metal_click_1.wav");
-    ui->screen->setText(ui->screen->text() + ui->button_9->text());
-}
 
+    if (ui->screen->text() == "0" && ui->button_9->text().toInt() == 0.0)
+        return;
+
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
+
+    ui->screen->setText(ui->screen->text() + "9");
+}
+//FIXME: przecinek na kropke
 void Calculator::on_buttonComma_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ui->buttonComma->text());
+    ui->screen->setText(ui->screen->text() + ".");
+    waitingForOperand = false;
 }
 
 void Calculator::on_buttonAdd_clicked()
@@ -121,20 +222,20 @@ void Calculator::on_buttonReplace_clicked()
     {
         text.remove(0,1);
     }
-    else if(value == 0.0)
-    {
-        text.clear();
-    }
+    //else if(value == 0.0)
+    //{
+    //    text.clear();
+    //}
 
     ui->screen->setText(text);
 }
 
-
+//FIXME: sprawdzic jeszcze raz dla np. 0.345 itd.
 void Calculator::on_backSpace_clicked()
 {
     QString text = ui->screen->text();
 
-    if (text.length() <= 2)
+    if (text.indexOf("-",0) == true || text.length() <= 2)
     {
         if (text.toDouble() > 0.0)
         {
@@ -142,7 +243,8 @@ void Calculator::on_backSpace_clicked()
         }
         else
         {
-            ui->screen->clear();
+            ui->screen->setText("0");
+            waitingForOperand = true;
         }
         //text.clear();
     }
@@ -155,7 +257,8 @@ void Calculator::on_backSpace_clicked()
 void Calculator::on_reset_clicked()
 {
     ui->screen->clear();
-    ui->screen->setPlaceholderText("0");
+    ui->screen->setText("0");
+    waitingForOperand = true;
 }
 
 void Calculator::on_back_clicked()
