@@ -2,4 +2,9 @@
     <qresource prefix="/new/sounds">
         <file>metal_click_1.wav</file>
     </qresource>
+    <qresource prefix="/new/icons">
+        <file>Calculator.png</file>
+        <file>choose.ico</file>
+        <file>settings.png</file>
+    </qresource>
 </RCC>

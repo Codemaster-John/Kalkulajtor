@@ -1,7 +1,7 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 #include <QDebug>
-//#include <QSound>
+#include <QSound>
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
@@ -177,10 +177,10 @@ void Calculator::on_button_9_clicked()
 
     ui->screen->setText(ui->screen->text() + "9");
 }
-//FIXME: przecinek na kropke
+
 void Calculator::on_buttonComma_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ".");
+    ui->screen->setText(ui->screen->text() + ",");
     waitingForOperand = false;
 }
 
@@ -230,7 +230,7 @@ void Calculator::on_buttonReplace_clicked()
     ui->screen->setText(text);
 }
 
-//FIXME: sprawdzic jeszcze raz dla np. 0.345 itd.
+//FIXME: sprawdzic jeszcze raz dla np. 0.345 itd, zmień if na switch-case
 void Calculator::on_backSpace_clicked()
 {
     QString text = ui->screen->text();

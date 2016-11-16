@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>415</width>
-    <height>711</height>
+    <height>735</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>415</width>
-    <height>711</height>
+    <height>735</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -646,12 +646,16 @@
      <x>0</x>
      <y>0</y>
      <width>415</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlik">
     <property name="title">
      <string>Widok</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/new/icons/choose.ico</normaloff>:/new/icons/choose.ico</iconset>
     </property>
     <addaction name="actionKalkulator"/>
     <addaction name="actionPrzelicznik_jednostek"/>
@@ -661,6 +665,10 @@
    <widget class="QMenu" name="menuPomoc">
     <property name="title">
      <string>Pomoc</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resources.qrc">
+      <normaloff>:/new/icons/settings.png</normaloff>:/new/icons/settings.png</iconset>
     </property>
     <addaction name="actionO_Programie"/>
     <addaction name="actionKalkulator_informacje"/>
@@ -676,6 +684,9 @@
   <action name="actionKalkulator">
    <property name="text">
     <string>Kalkulator</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionWykresy">
@@ -700,6 +711,8 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

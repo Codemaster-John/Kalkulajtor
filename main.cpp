@@ -1,11 +1,17 @@
+#include <iostream>
 #include "calculator.h"
 #include <QApplication>
+#include <QIcon>
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Calculator w;
-    w.show();
+    Calculator window;
+    window.show();
+    window.setWindowTitle("Kalkulajtor");
+    window.setWindowIcon(QIcon(":/new/icons/Calculator.png"));
 
     return a.exec();
 }
