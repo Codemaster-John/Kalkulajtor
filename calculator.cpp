@@ -2,7 +2,8 @@
 #include "ui_calculator.h"
 #include <QDebug>
 #include <QSound>
-
+// TODO: QDateTime - do czasu!!!
+//-----------------------------------
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Calculator)
@@ -10,6 +11,9 @@ Calculator::Calculator(QWidget *parent) :
     ui->setupUi(this);
 
     waitingForOperand = true;
+
+    addClicked = false;
+    subtractClicked = false;
     multiplyClicked = false;
     divideClicked = false;
 
@@ -36,7 +40,6 @@ void Calculator::on_button_0_clicked()
     //    ui->screen->clear();
     //    waitingForOperand = false;
     //}
-
     ui->screen->setText(ui->screen->text() + "0");
 
 }
@@ -53,7 +56,6 @@ void Calculator::on_button_1_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "1");
 }
 
@@ -69,7 +71,6 @@ void Calculator::on_button_2_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "2");
 }
 
@@ -85,7 +86,6 @@ void Calculator::on_button_3_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "3");
 }
 
@@ -101,7 +101,6 @@ void Calculator::on_button_4_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "4");
 }
 
@@ -117,7 +116,6 @@ void Calculator::on_button_5_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "5");
 }
 
@@ -133,7 +131,6 @@ void Calculator::on_button_6_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "6");
 }
 
@@ -149,7 +146,6 @@ void Calculator::on_button_7_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "7");
 }
 
@@ -165,7 +161,6 @@ void Calculator::on_button_8_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "8");
 }
 
@@ -181,7 +176,6 @@ void Calculator::on_button_9_clicked()
         ui->screen->clear();
         waitingForOperand = false;
     }
-
     ui->screen->setText(ui->screen->text() + "9");
 }
 
@@ -193,16 +187,62 @@ void Calculator::on_buttonComma_clicked()
 
 void Calculator::on_buttonAdd_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ui->buttonAdd->text());
+    QSound::play(":/new/sounds/operations_sound.wav");
+
+    double operand = ui->screen->text().toDouble();
+    qDebug() << operand;
+
+    if(addClicked)
+    {
+        if(true)
+        {
+            factorTemp += operand;
+        }
+        ui->screen->setText(QString::number(factorTemp));
+    }
+    else
+    {
+        factorTemp = operand;
+    }
+
+    addClicked = true;
+
+    ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " + "));
+
+    waitingForOperand = true;
 }
 
 void Calculator::on_buttonSubtract_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ui->buttonSubtract->text());
+    QSound::play(":/new/sounds/operations_sound.wav");
+
+    double operand = ui->screen->text().toDouble();
+    qDebug() << operand;
+
+    if(subtractClicked)
+    {
+        if(true)
+        {
+            factorTemp -= operand;
+        }
+        ui->screen->setText(QString::number(factorTemp));
+    }
+    else
+    {
+        factorTemp = operand;
+    }
+
+    subtractClicked = true;
+
+    ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " - "));
+
+    waitingForOperand = true;
 }
 
 void Calculator::on_buttonMultiply_clicked()
 {
+    QSound::play(":/new/sounds/operations_sound.wav");
+
     double operand = ui->screen->text().toDouble();
     qDebug() << operand;
 
@@ -221,14 +261,15 @@ void Calculator::on_buttonMultiply_clicked()
 
     multiplyClicked = true;
 
-    //ui->screen->setText(ui->screen->text());
-    ui->screen1->setText(ui->screen1->text().append(QString::number(operand) + " * "));
+    ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " * "));
 
     waitingForOperand = true;
 }
 
 void Calculator::on_buttonShare_clicked()
 {
+    QSound::play(":/new/sounds/operations_sound.wav");
+
     double operand = ui->screen->text().toDouble();
     qDebug() << operand;
 
@@ -247,29 +288,33 @@ void Calculator::on_buttonShare_clicked()
 
     divideClicked = true;
 
-    ui->screen1->setText(ui->screen1->text().append(QString::number(operand) + " / "));
+    ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " / "));
 
     waitingForOperand = true;
 }
 
 void Calculator::on_buttonEqual_clicked()
 {
-    QString text = ui->screen1->text();
+    QString text = ui->screen_1->text();
     double operand = ui->screen->text().toDouble();
 
     if(text.remove(0,(text.length()-3)) == " + ")
     {
-
+        factorTemp += operand;
+        ui->screen->setText(QString::number(factorTemp));
+        ui->screen_1->clear();
     }
     if(text.remove(0,(text.length()-3)) == " - ")
     {
-
+        factorTemp -= operand;
+        ui->screen->setText(QString::number(factorTemp));
+        ui->screen_1->clear();
     }
     if(text.remove(0,(text.length()-3)) == " * ")
     {
         factorTemp *= operand;
         ui->screen->setText(QString::number(factorTemp));
-        ui->screen1->clear();
+        ui->screen_1->clear();
     }
     if(text.remove(0,(text.length()-3)) == " / ")
     {
@@ -280,10 +325,8 @@ void Calculator::on_buttonEqual_clicked()
         }
         factorTemp /= operand;
         ui->screen->setText(QString::number(factorTemp));
-        ui->screen1->clear();
+        ui->screen_1->clear();
     }
-
-
 }
 
 void Calculator::on_buttonReplace_clicked()
@@ -310,6 +353,8 @@ void Calculator::on_buttonReplace_clicked()
 //FIXME: sprawdzic jeszcze raz dla np. 0.345 itd, zmień if na switch-case
 void Calculator::on_backSpace_clicked()
 {
+    QSound::play(":/new/sounds/backspace_sound.wav");
+
     QString text = ui->screen->text();
 
     if (text.indexOf("-",0) == true || text.length() <= 2)
@@ -333,13 +378,19 @@ void Calculator::on_backSpace_clicked()
 
 void Calculator::on_reset_clicked()
 {
+    QSound::play(":/new/sounds/delete.wav");
+
     ui->screen->clear();
-    ui->screen1->clear();
+    ui->screen_1->clear();
     ui->screen->setText("0");
 
     factorTemp = 0.0;
+
+    addClicked = false;
+    subtractClicked = false;
     multiplyClicked = false;
     divideClicked = false;
+
     waitingForOperand = true;
 }
 

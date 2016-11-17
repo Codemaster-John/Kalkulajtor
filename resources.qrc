@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/new/sounds">
         <file>metal_click_1.wav</file>
+        <file>operations_sound.wav</file>
+        <file>backspace_sound.wav</file>
+        <file>delete.wav</file>
     </qresource>
     <qresource prefix="/new/icons">
         <file>Calculator.png</file>

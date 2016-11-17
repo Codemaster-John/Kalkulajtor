@@ -60,6 +60,9 @@ private:
     Ui::Calculator *ui;
 
     bool waitingForOperand;
+
+    bool addClicked;
+    bool subtractClicked;
     bool multiplyClicked;
     bool divideClicked;
 
