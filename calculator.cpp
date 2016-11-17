@@ -226,13 +226,13 @@ void Calculator::on_buttonSubtract_clicked()
     {
         if(true)
         {
-            factorTemp -= operand;
+            sumTemp -= operand;
         }
-        ui->screen->setText(QString::number(factorTemp));
+        ui->screen->setText(QString::number(sumTemp));
     }
     else
     {
-        factorTemp = operand;
+        sumTemp = operand;
     }
 
     subtractClicked = true;
