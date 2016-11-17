@@ -66,6 +66,7 @@ private:
     bool multiplyClicked;
     bool divideClicked;
 
+    double sumTemp;
     double factorTemp;
 
 };
