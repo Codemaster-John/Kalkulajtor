@@ -10,6 +10,10 @@ Calculator::Calculator(QWidget *parent) :
     ui->setupUi(this);
 
     waitingForOperand = true;
+    multiplyClicked = false;
+    divideClicked = false;
+
+    factorTemp = 0.0;
 }
 
 Calculator::~Calculator()
@@ -22,13 +26,16 @@ void Calculator::on_button_0_clicked()
     QSound::play(":/new/sounds/metal_click_1.wav");
 
     if (ui->screen->text() == "0" && ui->button_0->text().toInt() == 0.0)
-              return;
-
-    if (waitingForOperand)
     {
-        ui->screen->clear();
         waitingForOperand = false;
+        return;
     }
+
+    //if (waitingForOperand)
+    //{
+    //    ui->screen->clear();
+    //    waitingForOperand = false;
+    //}
 
     ui->screen->setText(ui->screen->text() + "0");
 
@@ -196,16 +203,86 @@ void Calculator::on_buttonSubtract_clicked()
 
 void Calculator::on_buttonMultiply_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ui->buttonMultiply->text());
+    double operand = ui->screen->text().toDouble();
+    qDebug() << operand;
+
+    if(multiplyClicked)
+    {
+        if(true)
+        {
+            factorTemp *= operand;
+        }
+        ui->screen->setText(QString::number(factorTemp));
+    }
+    else
+    {
+        factorTemp = operand;
+    }
+
+    multiplyClicked = true;
+
+    //ui->screen->setText(ui->screen->text());
+    ui->screen1->setText(ui->screen1->text().append(QString::number(operand) + " * "));
+
+    waitingForOperand = true;
 }
 
 void Calculator::on_buttonShare_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ui->buttonShare->text());
+    double operand = ui->screen->text().toDouble();
+    qDebug() << operand;
+
+    if(divideClicked)
+    {
+        if(true)
+        {
+            factorTemp /= operand;
+        }
+        ui->screen->setText(QString::number(factorTemp));
+    }
+    else
+    {
+        factorTemp = operand;
+    }
+
+    divideClicked = true;
+
+    ui->screen1->setText(ui->screen1->text().append(QString::number(operand) + " / "));
+
+    waitingForOperand = true;
 }
 
 void Calculator::on_buttonEqual_clicked()
 {
+    QString text = ui->screen1->text();
+    double operand = ui->screen->text().toDouble();
+
+    if(text.remove(0,(text.length()-3)) == " + ")
+    {
+
+    }
+    if(text.remove(0,(text.length()-3)) == " - ")
+    {
+
+    }
+    if(text.remove(0,(text.length()-3)) == " * ")
+    {
+        factorTemp *= operand;
+        ui->screen->setText(QString::number(factorTemp));
+        ui->screen1->clear();
+    }
+    if(text.remove(0,(text.length()-3)) == " / ")
+    {
+        if (operand == 0.0)
+        {
+            ui->screen->setText("Nie można dzielić przez 0");
+            return;
+        }
+        factorTemp /= operand;
+        ui->screen->setText(QString::number(factorTemp));
+        ui->screen1->clear();
+    }
+
 
 }
 
@@ -257,7 +334,12 @@ void Calculator::on_backSpace_clicked()
 void Calculator::on_reset_clicked()
 {
     ui->screen->clear();
+    ui->screen1->clear();
     ui->screen->setText("0");
+
+    factorTemp = 0.0;
+    multiplyClicked = false;
+    divideClicked = false;
     waitingForOperand = true;
 }
 
