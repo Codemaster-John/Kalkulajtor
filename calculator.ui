@@ -258,7 +258,7 @@
         <string>=</string>
        </property>
        <property name="shortcut">
-        <string>Return</string>
+        <string>Enter</string>
        </property>
        <property name="flat">
         <bool>true</bool>

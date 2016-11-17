@@ -17,6 +17,7 @@ Calculator::Calculator(QWidget *parent) :
     multiplyClicked = false;
     divideClicked = false;
 
+    sumTemp = 0.0;
     factorTemp = 0.0;
 }
 
@@ -181,7 +182,7 @@ void Calculator::on_button_9_clicked()
 
 void Calculator::on_buttonComma_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ",");
+    ui->screen->setText(ui->screen->text() + ".");
     waitingForOperand = false;
 }
 
@@ -196,13 +197,13 @@ void Calculator::on_buttonAdd_clicked()
     {
         if(true)
         {
-            factorTemp += operand;
+            sumTemp += operand;
         }
-        ui->screen->setText(QString::number(factorTemp));
+        ui->screen->setText(QString::number(sumTemp));
     }
     else
     {
-        factorTemp = operand;
+        sumTemp = operand;
     }
 
     addClicked = true;
@@ -300,14 +301,14 @@ void Calculator::on_buttonEqual_clicked()
 
     if(text.remove(0,(text.length()-3)) == " + ")
     {
-        factorTemp += operand;
-        ui->screen->setText(QString::number(factorTemp));
+        sumTemp += operand;
+        ui->screen->setText(QString::number(sumTemp));
         ui->screen_1->clear();
     }
     if(text.remove(0,(text.length()-3)) == " - ")
     {
-        factorTemp -= operand;
-        ui->screen->setText(QString::number(factorTemp));
+        sumTemp -= operand;
+        ui->screen->setText(QString::number(sumTemp));
         ui->screen_1->clear();
     }
     if(text.remove(0,(text.length()-3)) == " * ")
@@ -327,6 +328,15 @@ void Calculator::on_buttonEqual_clicked()
         ui->screen->setText(QString::number(factorTemp));
         ui->screen_1->clear();
     }
+    sumTemp = 0.0;
+    factorTemp = 0.0;
+
+    addClicked = false;
+    subtractClicked = false;
+    multiplyClicked = false;
+    divideClicked = false;
+
+    waitingForOperand = true;
 }
 
 void Calculator::on_buttonReplace_clicked()
@@ -384,6 +394,7 @@ void Calculator::on_reset_clicked()
     ui->screen_1->clear();
     ui->screen->setText("0");
 
+    sumTemp = 0.0;
     factorTemp = 0.0;
 
     addClicked = false;
