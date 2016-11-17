@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>415</width>
-    <height>735</height>
+    <height>693</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>415</width>
-    <height>735</height>
+    <height>693</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -30,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>40</y>
+      <y>0</y>
       <width>415</width>
       <height>671</height>
      </rect>
@@ -258,7 +258,7 @@
         <string>=</string>
        </property>
        <property name="shortcut">
-        <string>Enter</string>
+        <string>Return</string>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -588,6 +588,9 @@
      </item>
      <item row="1" column="0" colspan="4">
       <widget class="QLineEdit" name="screen">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -608,11 +611,26 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>0</string>
        </property>
        <property name="maxLength">
         <number>15</number>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Normal</enum>
@@ -645,8 +663,19 @@
          <height>125</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>24</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

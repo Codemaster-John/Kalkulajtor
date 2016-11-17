@@ -34,14 +34,12 @@ void Calculator::on_button_0_clicked()
     {
         return;
     }
-
     if (waitingForOperand)
     {
         ui->screen->clear();
         waitingForOperand = false;
     }
     ui->screen->setText(ui->screen->text() + "0");
-
 }
 
 void Calculator::on_button_1_clicked()
@@ -323,7 +321,7 @@ void Calculator::on_buttonEqual_clicked()
     {
         if (operand == 0.0)
         {
-            ui->screen->setText("Nie można dzielić przez 0");
+            ui->screen->setText("Nie przez zero!");
             return;
         }
         factorTemp /= operand;
