@@ -32,15 +32,14 @@ void Calculator::on_button_0_clicked()
 
     if (ui->screen->text() == "0" && ui->button_0->text().toInt() == 0.0)
     {
-        waitingForOperand = false;
         return;
     }
 
-    //if (waitingForOperand)
-    //{
-    //    ui->screen->clear();
-    //    waitingForOperand = false;
-    //}
+    if (waitingForOperand)
+    {
+        ui->screen->clear();
+        waitingForOperand = false;
+    }
     ui->screen->setText(ui->screen->text() + "0");
 
 }
@@ -182,7 +181,10 @@ void Calculator::on_button_9_clicked()
 
 void Calculator::on_buttonComma_clicked()
 {
-    ui->screen->setText(ui->screen->text() + ".");
+    if(!ui->screen->text().contains("."))
+    {
+        ui->screen->setText(ui->screen->text() + ".");
+    }
     waitingForOperand = false;
 }
 
@@ -407,5 +409,20 @@ void Calculator::on_reset_clicked()
 
 void Calculator::on_back_clicked()
 {
-
+    if (waitingForOperand)
+    {
+        if(ui->screen->text() == "0")
+        {
+            return;
+        }
+        else
+        {
+            ui->screen->setText("0");
+        }
+    }
+    else
+    {
+        ui->screen->setText("0");
+        waitingForOperand = true;
+    }
 }
