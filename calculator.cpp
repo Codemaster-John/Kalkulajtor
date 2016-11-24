@@ -1,4 +1,5 @@
 #include "calculator.h"
+#include "units.h"
 #include "ui_calculator.h"
 #include <QDebug>
 #include <QSound>
@@ -427,9 +428,5 @@ void Calculator::on_back_clicked()
 
 void Calculator::on_actionPrzelicznik_jednostek_triggered()
 {
-    int max_width = 750;
-    for(int i = this->width();i <= max_width; i+=5)
-    {
-        this->resize(i,this->height());
-    }
+    Units::Units.update_geometry();
 }
