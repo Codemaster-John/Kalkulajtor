@@ -424,3 +424,12 @@ void Calculator::on_back_clicked()
         waitingForOperand = true;
     }
 }
+
+void Calculator::on_actionPrzelicznik_jednostek_triggered()
+{
+    int max_width = 750;
+    for(int i = this->width();i <= max_width; i+=5)
+    {
+        this->resize(i,this->height());
+    }
+}

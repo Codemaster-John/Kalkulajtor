@@ -56,6 +56,8 @@ private slots:
 
     void on_back_clicked();
 
+    void on_actionPrzelicznik_jednostek_triggered();
+
 private:
     Ui::Calculator *ui;
 
