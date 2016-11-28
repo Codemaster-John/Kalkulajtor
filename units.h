@@ -9,10 +9,15 @@ class Units : public QMainWindow
 public:
     explicit Units(QWidget *parent = 0);
     ~Units();
+
+    void update_geometry();
+
+
 signals:
+    //void update_geometry();
 
 public slots:
-    void update_geometry();
+
 };
 
 #endif // UNITS_H
