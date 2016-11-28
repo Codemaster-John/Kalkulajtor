@@ -71,6 +71,8 @@ private:
     double sumTemp;
     double factorTemp;
 
+    int length;
+
 };
 
 #endif // CALCULATOR_H

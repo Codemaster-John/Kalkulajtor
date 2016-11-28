@@ -11,6 +11,7 @@ Calculator::Calculator(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     waitingForOperand = true;
 
     addClicked = false;
@@ -20,6 +21,8 @@ Calculator::Calculator(QWidget *parent) :
 
     sumTemp = 0.0;
     factorTemp = 0.0;
+
+    length = 15;
 }
 
 Calculator::~Calculator()
@@ -182,6 +185,7 @@ void Calculator::on_buttonComma_clicked()
 {
     if(!ui->screen->text().contains("."))
     {
+        ui->screen->setMaxLength(ui->screen->maxLength()+1);
         ui->screen->setText(ui->screen->text() + ".");
     }
     waitingForOperand = false;
@@ -210,7 +214,7 @@ void Calculator::on_buttonAdd_clicked()
     addClicked = true;
 
     ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " + "));
-
+    ui->screen->setMaxLength(length);
     waitingForOperand = true;
 }
 
@@ -237,7 +241,7 @@ void Calculator::on_buttonSubtract_clicked()
     subtractClicked = true;
 
     ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " - "));
-
+    ui->screen->setMaxLength(length);
     waitingForOperand = true;
 }
 
@@ -264,7 +268,7 @@ void Calculator::on_buttonMultiply_clicked()
     multiplyClicked = true;
 
     ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " * "));
-
+    ui->screen->setMaxLength(length);
     waitingForOperand = true;
 }
 
@@ -291,7 +295,7 @@ void Calculator::on_buttonShare_clicked()
     divideClicked = true;
 
     ui->screen_1->setText(ui->screen_1->text().append(QString::number(operand) + " / "));
-
+    ui->screen->setMaxLength(length);
     waitingForOperand = true;
 }
 
@@ -337,6 +341,8 @@ void Calculator::on_buttonEqual_clicked()
     multiplyClicked = false;
     divideClicked = false;
 
+    ui->screen->setMaxLength(length);
+
     waitingForOperand = true;
 }
 
@@ -347,11 +353,13 @@ void Calculator::on_buttonReplace_clicked()
 
     if(value > 0.0)
     {
+        ui->screen->setMaxLength(ui->screen->maxLength()+1);
         text.prepend(tr("-"));
     }
     else if (value < 0.0)
     {
         text.remove(0,1);
+        ui->screen->setMaxLength(ui->screen->maxLength()-1);
     }
     //else if(value == 0.0)
     //{
@@ -377,6 +385,7 @@ void Calculator::on_backSpace_clicked()
         else
         {
             ui->screen->setText("0");
+            ui->screen->setMaxLength(ui->screen->maxLength()-1);
             waitingForOperand = true;
         }
         //text.clear();
@@ -384,6 +393,10 @@ void Calculator::on_backSpace_clicked()
     else if( text.length() > 2 )
     {
         ui->screen->backspace();
+    }
+    if (text.endsWith(".") == true)
+    {
+        ui->screen->setMaxLength(ui->screen->maxLength()-1);
     }
 }
 
@@ -394,6 +407,7 @@ void Calculator::on_reset_clicked()
     ui->screen->clear();
     ui->screen_1->clear();
     ui->screen->setText("0");
+    ui->screen->setMaxLength(length);
 
     sumTemp = 0.0;
     factorTemp = 0.0;
@@ -424,9 +438,15 @@ void Calculator::on_back_clicked()
         ui->screen->setText("0");
         waitingForOperand = true;
     }
+    ui->screen->setMaxLength(length);
 }
 
 void Calculator::on_actionPrzelicznik_jednostek_triggered()
 {
-    Units::Units.update_geometry();
+    int max_width = 750;
+    for(int i = this->width() ;i <= max_width; i+=5)
+    {
+       this->resize(i,this->height());
+    }
+
 }
