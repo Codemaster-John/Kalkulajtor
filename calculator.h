@@ -75,6 +75,14 @@ private:
 
     int length;
 
+    QStringList temperature;
+    QStringList time;
+    QStringList power;
+    QStringList speed;
+    QStringList data;
+    QStringList measure;
+
+
 };
 
 #endif // CALCULATOR_H

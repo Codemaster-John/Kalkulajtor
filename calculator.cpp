@@ -22,6 +22,15 @@ Calculator::Calculator(QWidget *parent) :
     factorTemp = 0.0;
 
     length = 15;
+
+    temperature << "Kelwin" << "Celsjusz";
+    ui->comboBox_2->addItems(temperature);
+    ui->comboBox_3->addItems(temperature);
+    time << "Sekunda" << "Minuta" << "Godzina";
+    power << "KM" << "kW";
+    speed << "Mile na godzine" << "Kilometry na godzine";
+    data << "Mb" << "MB" << "Gb" << "GB";
+    measure << "Centymetry" << "Metry" << "Kilometry";
 }
 
 Calculator::~Calculator()
@@ -452,20 +461,7 @@ void Calculator::on_actionPrzelicznik_jednostek_triggered()
 
 void Calculator::on_comboBox_activated(int index)
 {
-    QStringList temperature;
-    temperature << "Kelwin" << "Celsjusz";
-    QStringList time;
-    time << "Sekunda" << "Minuta" << "Godzina";
-    QStringList power;
-    power << "KM" << "kW";
-    QStringList speed;
-    speed << "Mile na godzine" << "Kilometry na godzine";
-    QStringList data;
-    data << "Mb" << "MB" << "Gb" << "GB";
-    QStringList measure;
-    measure << "Centymetry" << "Metry" << "Kilometry";
     index = ui->comboBox->currentIndex();
-    qDebug()<<index;
     switch (index) {
     case 0:
         if (ui->comboBox->itemText(index) == "Temperatura")
