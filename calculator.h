@@ -58,6 +58,8 @@ private slots:
 
     void on_actionPrzelicznik_jednostek_triggered();
 
+    void on_comboBox_activated(int index);
+
 private:
     Ui::Calculator *ui;
 

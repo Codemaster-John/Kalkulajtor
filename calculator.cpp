@@ -1,5 +1,4 @@
 #include "calculator.h"
-#include "units.h"
 #include "ui_calculator.h"
 #include <QDebug>
 #include <QSound>
@@ -448,5 +447,119 @@ void Calculator::on_actionPrzelicznik_jednostek_triggered()
     {
        this->resize(i,this->height());
     }
+}
+
+
+void Calculator::on_comboBox_activated(int index)
+{
+    QStringList temperature;
+    temperature << "Kelwin" << "Celsjusz";
+    QStringList time;
+    time << "Sekunda" << "Minuta" << "Godzina";
+    QStringList power;
+    power << "KM" << "kW";
+    QStringList speed;
+    speed << "Mile na godzine" << "Kilometry na godzine";
+    QStringList data;
+    data << "Mb" << "MB" << "Gb" << "GB";
+    QStringList measure;
+    measure << "Centymetry" << "Metry" << "Kilometry";
+    index = ui->comboBox->currentIndex();
+    qDebug()<<index;
+    switch (index) {
+    case 0:
+        if (ui->comboBox->itemText(index) == "Temperatura")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(temperature);
+                ui->comboBox_3->addItems(temperature);
+            }
+        }
+        break;
+    case 1:
+        if (ui->comboBox->itemText(index) == "Czas")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(time);
+                ui->comboBox_3->addItems(time);
+            }
+        }
+        break;
+    case 2:
+        if (ui->comboBox->itemText(index) == "Moc")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(power);
+                ui->comboBox_3->addItems(power);
+            }
+        }
+        break;
+    case 3:
+        if (ui->comboBox->itemText(index) == "Prędkość")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(speed);
+                ui->comboBox_3->addItems(speed);
+            }
+        }
+        break;
+    case 4:
+        if (ui->comboBox->itemText(index) == "Dane")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(data);
+                ui->comboBox_3->addItems(data);
+            }
+        }
+        break;
+    case 5:
+        if (ui->comboBox->itemText(index) == "Długość")
+        {
+            if (!ui->comboBox->currentText().isEmpty())
+            {
+                ui->comboBox_2->clear();
+                ui->comboBox_3->clear();
+            }
+            if(ui->comboBox_2->currentText().isEmpty())
+            {
+                ui->comboBox_2->addItems(measure);
+                ui->comboBox_3->addItems(measure);
+            }
+        }
+        break;
+     default:
+        break;
+    }
+
 
 }
