@@ -570,14 +570,30 @@ void Calculator::on_input_textEdited(const QString &arg1)
     {
         ui->output->setText(arg1);
     }
-    else if(ui->comboBox_2->currentText() == "Kelwin")
+    else if(ui->comboBox_2->currentIndex() == 0)
     {
-        number = arg1.toDouble()-273.15;
-        ui->output->setText(QString::number(number));
+        if (ui->comboBox_2->currentText() == "Kelwin")
+        {
+            number = arg1.toDouble()-273.15;
+            ui->output->setText(QString::number(number));
+        }
+        if (ui->comboBox_2->currentText() == "KM")
+        {
+            number = arg1.toDouble()*0.7456998;
+            ui->output->setText(QString::number(number));
+        }
     }
-    else if(ui->comboBox_2->currentText() == "Celsjusz")
+    else if(ui->comboBox_2->currentIndex() == 1)
     {
-        number = arg1.toDouble()+273.15;
-        ui->output->setText(QString::number(number));
+        if (ui->comboBox_3->currentText() == "Celsjusz")
+        {
+            number = arg1.toDouble()+273.15;
+            ui->output->setText(QString::number(number));
+        }
+        if (ui->comboBox_3->currentText() == "KW")
+        {
+            number = arg1.toDouble()/0.7456998;
+            ui->output->setText(QString::number(number));
+        }
     }
 }
