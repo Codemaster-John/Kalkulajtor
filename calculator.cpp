@@ -582,6 +582,11 @@ void Calculator::on_input_textEdited(const QString &arg1)
             number = arg1.toDouble()*0.7456998;
             ui->output->setText(QString::number(number));
         }
+        if (ui->comboBox_2->currentText() == "Mile na godzine")
+        {
+            number = arg1.toDouble()*0.621371;
+            ui->output->setText(QString::number(number));
+        }
     }
     else if(ui->comboBox_2->currentIndex() == 1)
     {
@@ -593,6 +598,11 @@ void Calculator::on_input_textEdited(const QString &arg1)
         if (ui->comboBox_3->currentText() == "KW")
         {
             number = arg1.toDouble()/0.7456998;
+            ui->output->setText(QString::number(number));
+        }
+        if (ui->comboBox_3->currentText() == "Kilometry na godzine")
+        {
+            number = arg1.toDouble()*1.609344;
             ui->output->setText(QString::number(number));
         }
     }
