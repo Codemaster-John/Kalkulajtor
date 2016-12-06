@@ -60,7 +60,7 @@ private slots:
 
     void on_comboBox_activated(int index);
 
-    void on_input_textEdited(const QString &arg1);
+    void on_input_textChanged(const QString &arg1);
 
 private:
     Ui::Calculator *ui;
