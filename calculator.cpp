@@ -377,7 +377,6 @@ void Calculator::on_buttonReplace_clicked()
     ui->screen->setText(text);
 }
 
-//FIXME: sprawdzic jeszcze raz dla np. 0.345 itd, zmień if na switch-case
 void Calculator::on_backSpace_clicked()
 {
     QSound::play(":/new/sounds/backspace_sound.wav");
@@ -461,6 +460,9 @@ void Calculator::on_actionPrzelicznik_jednostek_triggered()
 
 void Calculator::on_comboBox_activated(int index)
 {
+    ui->input->clear();
+    ui->output->clear();
+
     index = ui->comboBox->currentIndex();
     switch (index) {
     case 0:
@@ -558,4 +560,24 @@ void Calculator::on_comboBox_activated(int index)
     }
 
 
+}
+
+void Calculator::on_input_textEdited(const QString &arg1)
+{
+    double number;
+
+    if (ui->comboBox_2->currentText() == ui->comboBox_3->currentText())
+    {
+        ui->output->setText(arg1);
+    }
+    else if(ui->comboBox_2->currentText() == "Kelwin")
+    {
+        number = arg1.toDouble()-273.15;
+        ui->output->setText(QString::number(number));
+    }
+    else if(ui->comboBox_2->currentText() == "Celsjusz")
+    {
+        number = arg1.toDouble()+273.15;
+        ui->output->setText(QString::number(number));
+    }
 }

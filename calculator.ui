@@ -786,7 +786,7 @@
      <string>Na</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -799,7 +799,7 @@
      <string>Wprowadź wartość</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="output">
     <property name="geometry">
      <rect>
       <x>460</x>
