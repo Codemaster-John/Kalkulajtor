@@ -28,7 +28,7 @@ Calculator::Calculator(QWidget *parent) :
     time << "Sekunda" << "Minuta" << "Godzina";
     power << "KM" << "kW";
     speed << "Mile na godzine" << "Kilometry na godzine";
-    data << "Mb" << "MB" << "Gb" << "GB";
+    data << "Kb" << "KB" << "Mb" << "MB" << "Gb" << "GB" << "Tb" << "TB";
     measure << "Centymetry" << "Metry" << "Kilometry";
 }
 
@@ -368,11 +368,6 @@ void Calculator::on_buttonReplace_clicked()
         text.remove(0,1);
         ui->screen->setMaxLength(ui->screen->maxLength()-1);
     }
-    //else if(value == 0.0)
-    //{
-    //    text.clear();
-    //}
-
     ui->screen->setText(text);
 }
 
@@ -455,7 +450,7 @@ void Calculator::on_actionPrzelicznik_jednostek_triggered()
        this->resize(i,this->height());
     }
 }
-
+// TODO: przycisk KALKULATOR zwija program do wartosci poczatkowej!!!
 void Calculator::on_actionKalkulator_triggered()
 {
     int width = 415;
@@ -590,7 +585,7 @@ void Calculator::on_input_textChanged(const QString &arg1)
         }
         else if (ui->comboBox_2->currentText() == "Mile na godzine")
         {
-            number = arg1.toDouble()*0.621371;
+            number = arg1.toDouble()*1.609344;
             ui->output->setText(QString::number(number));
         }
         else if (ui->comboBox_2->currentText() == "Centymetry")
@@ -619,21 +614,41 @@ void Calculator::on_input_textChanged(const QString &arg1)
                 ui->output->setText(QString::number(number));
             }
         }
-        else if (ui->comboBox_2->currentText() == "Mb")
+        else if (ui->comboBox_2->currentText() == "Kb")
         {
-            if (ui->comboBox_3->currentText() == "MB")
+            if (ui->comboBox_3->currentText() == "KB")
             {
                 number = arg1.toDouble()/8;
                 ui->output->setText(QString::number(number));
             }
-            else if (ui->comboBox_3->currentText() == "Gb")
+            else if (ui->comboBox_3->currentText() == "Mb")
             {
                 number = arg1.toDouble()/1024;
                 ui->output->setText(QString::number(number));
             }
-            else if (ui->comboBox_3->currentText() == "GB")
+            else if (ui->comboBox_3->currentText() == "MB")
             {
                 number = arg1.toDouble()/8192;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()/1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()/8388608;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/1073741824;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/8589934592;
                 ui->output->setText(QString::number(number));
             }
         }
@@ -652,7 +667,7 @@ void Calculator::on_input_textChanged(const QString &arg1)
         }
         else if (ui->comboBox_2->currentText() == "Kilometry na godzine")
         {
-            number = arg1.toDouble()/0.621371;
+            number = arg1.toDouble()*0.621371192;
             ui->output->setText(QString::number(number));
         }
         else if (ui->comboBox_2->currentText() == "Metry")
@@ -681,21 +696,41 @@ void Calculator::on_input_textChanged(const QString &arg1)
                 ui->output->setText(QString::number(number));
             }
         }
-        else if (ui->comboBox_2->currentText() == "MB")
+        else if (ui->comboBox_2->currentText() == "KB")
         {
-            if (ui->comboBox_3->currentText() == "Mb")
+            if (ui->comboBox_3->currentText() == "Kb")
             {
                 number = arg1.toDouble()*8;
                 ui->output->setText(QString::number(number));
             }
-            else if (ui->comboBox_3->currentText() == "Gb")
+            else if (ui->comboBox_3->currentText() == "Mb")
             {
                 number = arg1.toDouble()/128;
                 ui->output->setText(QString::number(number));
             }
-            else if (ui->comboBox_3->currentText() == "GB")
+            else if (ui->comboBox_3->currentText() == "MB")
             {
                 number = arg1.toDouble()/1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()/131072;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()/1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/134217728;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/1073741824;
                 ui->output->setText(QString::number(number));
             }
         }
@@ -728,9 +763,101 @@ void Calculator::on_input_textChanged(const QString &arg1)
                 ui->output->setText(QString::number(number));
             }
         }
-        else if (ui->comboBox_2->currentText() == "Gb")
+        else if (ui->comboBox_2->currentText() == "Mb")
         {
-            if (ui->comboBox_3->currentText() == "Mb")
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*128;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "MB")
+            {
+                number = arg1.toDouble()/8;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()/1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()/8192;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/8388608;
+                ui->output->setText(QString::number(number));
+            }
+        }
+    }
+    else if(ui->comboBox_2->currentIndex() == 3)
+    {
+        if (ui->comboBox_2->currentText() == "MB")
+        {
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*8192;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Mb")
+            {
+                number = arg1.toDouble()*8;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()/128;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()/1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/131072;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/1048576;
+                ui->output->setText(QString::number(number));
+            }
+        }
+    }
+    else if(ui->comboBox_2->currentIndex() == 4)
+    {
+        if (ui->comboBox_2->currentText() == "Gb")
+        {
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*131072;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Mb")
             {
                 number = arg1.toDouble()*1024;
                 ui->output->setText(QString::number(number));
@@ -745,13 +872,33 @@ void Calculator::on_input_textChanged(const QString &arg1)
                 number = arg1.toDouble()/8;
                 ui->output->setText(QString::number(number));
             }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/8192;
+                ui->output->setText(QString::number(number));
+            }
         }
     }
-    else if(ui->comboBox_2->currentIndex() == 3)
+    else if(ui->comboBox_2->currentIndex() == 5)
     {
         if (ui->comboBox_2->currentText() == "GB")
         {
-            if (ui->comboBox_3->currentText() == "Mb")
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*8388608;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Mb")
             {
                 number = arg1.toDouble()*8192;
                 ui->output->setText(QString::number(number));
@@ -762,6 +909,98 @@ void Calculator::on_input_textChanged(const QString &arg1)
                 ui->output->setText(QString::number(number));
             }
             else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()*8;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
+            {
+                number = arg1.toDouble()/128;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/1024;
+                ui->output->setText(QString::number(number));
+            }
+        }
+    }
+    else if(ui->comboBox_2->currentIndex() == 6)
+    {
+        if (ui->comboBox_2->currentText() == "Tb")
+        {
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*1073741824;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*134217728;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Mb")
+            {
+                number = arg1.toDouble()*1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "MB")
+            {
+                number = arg1.toDouble()*131072;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()*1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()*128;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "TB")
+            {
+                number = arg1.toDouble()/8;
+                ui->output->setText(QString::number(number));
+            }
+        }
+    }
+    else if(ui->comboBox_2->currentIndex() == 7)
+    {
+        if (ui->comboBox_2->currentText() == "TB")
+        {
+            if (ui->comboBox_3->currentText() == "Kb")
+            {
+                number = arg1.toDouble()*8589934592;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "KB")
+            {
+                number = arg1.toDouble()*1073741824;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Mb")
+            {
+                number = arg1.toDouble()*8388608;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "MB")
+            {
+                number = arg1.toDouble()*1048576;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Gb")
+            {
+                number = arg1.toDouble()*8192;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "GB")
+            {
+                number = arg1.toDouble()*1024;
+                ui->output->setText(QString::number(number));
+            }
+            else if (ui->comboBox_3->currentText() == "Tb")
             {
                 number = arg1.toDouble()*8;
                 ui->output->setText(QString::number(number));
