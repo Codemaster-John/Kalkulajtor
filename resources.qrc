@@ -6,8 +6,8 @@
         <file>delete.wav</file>
     </qresource>
     <qresource prefix="/new/icons">
-        <file>Calculator.png</file>
         <file>choose.ico</file>
         <file>settings.png</file>
+        <file>kalkulator.png</file>
     </qresource>
 </RCC>

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     Calculator window;
     window.show();
     window.setWindowTitle("Kalkulajtor");
-    window.setWindowIcon(QIcon(":/new/icons/Calculator.png"));
+    window.setWindowIcon(QIcon(":/new/icons/kalkulator.png"));
 
     return a.exec();
 }
