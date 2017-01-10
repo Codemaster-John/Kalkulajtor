@@ -1,4 +1,5 @@
 #include "calculator.h"
+#include "units.h"
 #include "ui_calculator.h"
 #include <QDebug>
 #include <QSound>
