@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -841,14 +841,14 @@
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>260</y>
-        <width>47</width>
-        <height>13</height>
+        <width>141</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>To jest dzisiaj!</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">

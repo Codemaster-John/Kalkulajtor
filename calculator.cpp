@@ -3,8 +3,8 @@
 #include "ui_calculator.h"
 #include <QDebug>
 #include <QSound>
-// TODO: QDateTime - do czasu!!!
-//-----------------------------------
+#include <QDate>
+
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Calculator)
@@ -31,6 +31,8 @@ Calculator::Calculator(QWidget *parent) :
     speed << "Mile na godzine" << "Kilometry na godzine";
     data << "Kb" << "KB" << "Mb" << "MB" << "Gb" << "GB" << "Tb" << "TB";
     measure << "Centymetry" << "Metry" << "Kilometry";
+
+    ui->calendarWidget->setMinimumDate(QDate::currentDate());
 }
 
 Calculator::~Calculator()
@@ -1008,4 +1010,27 @@ void Calculator::on_input_textChanged(const QString &arg1)
             }
         }
     }
+}
+
+void Calculator::on_calendarWidget_selectionChanged()
+{
+    QDate day;
+
+    int diff;
+    diff = ui->calendarWidget->selectedDate().toJulianDay()-day.currentDate().toJulianDay();
+
+
+    if (diff==0)
+    {
+        ui->label_4->setText("To jest dzisiaj!");
+    }
+    else if (diff==1)
+    {
+        ui->label_4->setText("Różnica to: "+QString::number(diff)+" dzień");
+    }
+    else
+    {
+        ui->label_4->setText("Różnica to: "+QString::number(diff)+" dni");
+    }
+
 }

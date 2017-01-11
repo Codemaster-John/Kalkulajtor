@@ -64,6 +64,8 @@ private slots:
 
     void on_input_textChanged(const QString &arg1);
 
+    void on_calendarWidget_selectionChanged();
+
 private:
     Ui::Calculator *ui;
 
@@ -85,7 +87,6 @@ private:
     QStringList speed;
     QStringList data;
     QStringList measure;
-
 
 };
 
