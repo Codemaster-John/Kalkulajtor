@@ -1,9 +1,11 @@
 #include "calculator.h"
 #include "units.h"
 #include "ui_calculator.h"
+#include "qcustomplot.h"
 #include <QDebug>
 #include <QSound>
 #include <QDate>
+#include <QtMath>
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent),
@@ -33,6 +35,8 @@ Calculator::Calculator(QWidget *parent) :
     measure << "Centymetry" << "Metry" << "Kilometry";
 
     ui->calendarWidget->setMinimumDate(QDate::currentDate());
+
+    chart(ui->chart);
 }
 
 Calculator::~Calculator()
@@ -1033,4 +1037,79 @@ void Calculator::on_calendarWidget_selectionChanged()
         ui->label_4->setText("Różnica to: "+QString::number(diff)+" dni");
     }
 
+}
+
+void Calculator::chart(QCustomPlot *customPlot)
+{
+    customPlot = ui->chart;
+    double xmin = ui->xmin->value();
+    int xmax = 360+(ui->xmax->value()*90);
+    QVector<double> x(xmax), y(xmax);
+
+    if(ui->radio_sin->isChecked())
+    {
+        for (double i=0; i<xmax; i++)
+        {
+          x[i] = i/90;
+          y[i] = qSin(qDegreesToRadians(i));
+        }
+    }
+    else if(ui->radio_cos->isChecked())
+    {
+        for (double i=0; i<xmax; i++)
+        {
+          x[i] = i/90;
+          y[i] = qCos(qDegreesToRadians(i));
+        }
+    }
+    else if(ui->radio_tan->isChecked())
+    {
+        for (double i=0; i<xmax; i++)
+        {
+          x[i] = i/90;
+          y[i] = qTan(qDegreesToRadians(i));
+        }
+    }
+
+    customPlot->addGraph();
+    customPlot->graph(0)->setData(x, y);
+
+    customPlot->xAxis->setLabel("x");
+    customPlot->yAxis->setLabel("y");
+
+    customPlot->xAxis->setRange(xmin,(xmax/90)+1);
+
+    if(ui->radio_tan->isChecked())
+    {
+        customPlot->yAxis->setRange(-3, 3);
+    }
+    else
+        customPlot->yAxis->setRange(-1,1);
+
+    customPlot->replot();
+}
+
+void Calculator::on_radio_sin_clicked()
+{
+    chart(ui->chart);
+}
+
+void Calculator::on_radio_cos_clicked()
+{
+    chart(ui->chart);
+}
+
+void Calculator::on_radio_tan_clicked()
+{
+    chart(ui->chart);
+}
+
+void Calculator::on_xmin_valueChanged()
+{
+    chart(ui->chart);
+}
+
+void Calculator::on_xmax_valueChanged()
+{
+    chart(ui->chart);
 }

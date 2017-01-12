@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -930,70 +930,115 @@
      <attribute name="title">
       <string>Wykresy</string>
      </attribute>
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="QCustomPlot" name="chart" native="true">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>120</y>
-        <width>160</width>
-        <height>22</height>
+        <x>10</x>
+        <y>270</y>
+        <width>391</width>
+        <height>331</height>
        </rect>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
      </widget>
-     <widget class="QSlider" name="horizontalSlider_2">
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>180</y>
-        <width>160</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioButton">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>82</width>
-        <height>17</height>
+        <x>90</x>
+        <y>10</y>
+        <width>231</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Sin</string>
+       <string>Wybierz funkcję, której wykres chcesz zobaczyć</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>70</x>
         <y>40</y>
-        <width>82</width>
-        <height>17</height>
+        <width>341</width>
+        <height>20</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Cos</string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QRadioButton" name="radio_sin">
+         <property name="text">
+          <string>Sin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radio_tan">
+         <property name="text">
+          <string>Tan</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radio_cos">
+         <property name="text">
+          <string>Cos</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
-     <widget class="QRadioButton" name="radioButton_3">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>40</y>
-        <width>82</width>
-        <height>17</height>
+        <x>130</x>
+        <y>90</y>
+        <width>136</width>
+        <height>43</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Tan</string>
-      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>Dolny zakres</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="xmin">
+           <property name="minimum">
+            <number>-25</number>
+           </property>
+           <property name="maximum">
+            <number>0</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Górny zakres</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="xmax">
+           <property name="maximum">
+            <number>25</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -1069,6 +1114,14 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

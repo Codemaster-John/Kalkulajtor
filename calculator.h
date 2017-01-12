@@ -2,6 +2,7 @@
 #define CALCULATOR_H
 
 #include <QMainWindow>
+#include "qcustomplot.h"
 
 namespace Ui {
 class Calculator;
@@ -14,6 +15,8 @@ class Calculator : public QMainWindow
 public:
     explicit Calculator(QWidget *parent = 0);
     ~Calculator();
+
+    void chart(QCustomPlot *customPlot);
 
 private slots:
     void on_button_0_clicked();
@@ -65,6 +68,16 @@ private slots:
     void on_input_textChanged(const QString &arg1);
 
     void on_calendarWidget_selectionChanged();
+
+    void on_radio_sin_clicked();
+
+    void on_radio_cos_clicked();
+
+    void on_radio_tan_clicked();
+
+    void on_xmin_valueChanged();
+
+    void on_xmax_valueChanged();
 
 private:
     Ui::Calculator *ui;

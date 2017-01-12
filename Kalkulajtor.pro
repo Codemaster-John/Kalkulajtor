@@ -6,7 +6,7 @@
 
 QT       += core gui
 QT       += multimedia
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = Kalkulajtor
 TEMPLATE = app
@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         calculator.cpp \
-    units.cpp
+    units.cpp \
+    qcustomplot.cpp
 
 HEADERS  += calculator.h \
-    units.h
+    units.h \
+    qcustomplot.h
 
 FORMS    += calculator.ui
 
